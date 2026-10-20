@@ -40,6 +40,10 @@ float sdQuestionMark(vec2 p) {
 void main() {
   vec2 p = (vUv - 0.5) * 2.0;
 
+  // talasasto iskrivljenje samog znaka
+  p.x += 0.06 * sin(p.y * 6.0 + uTime * 2.5);
+  p.y += 0.04 * sin(p.x * 5.0 - uTime * 2.0);
+
   float d = sdQuestionMark(p) - 0.045; // debljina linije
 
   float pulse = 0.5 + 0.5 * sin(uTime * 2.0);
