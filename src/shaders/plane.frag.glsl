@@ -9,7 +9,7 @@ void main() {
   gl_FragColor = mix(
    color1,
    color2,
-   vUv.x*uTime
+   vUv.x
   );
 }
 
