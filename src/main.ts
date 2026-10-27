@@ -26,6 +26,8 @@ const material = new THREE.ShaderMaterial({
   fragmentShader,
   side: THREE.DoubleSide,
   uniforms: {
+    color1: { value: new THREE.Vector4(1, 1, 0, 1) },
+    color2: { value: new THREE.Vector4(1, 0, 0, 1) },
     uTime: { value: 0 },
   },
 });
