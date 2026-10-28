@@ -8,7 +8,7 @@ void main() {
  vec4 diffuseSample=texture2D(diffuse,vUv);
  vec4 natureSample=texture2D(nature,vUv);
 
- gl_FragColor = vec4(natureSample.r,natureSample.g, natureSample.b,1.0);
+ gl_FragColor = mix(natureSample,diffuseSample,diffuseSample.a);
 }
 
 
