@@ -1,10 +1,15 @@
 
 varying vec2 vUv;
 
-void main() {
+uniform float uTime;
 
-  gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+void main() {
+  vec3 displacedPosition = position;
+  displacedPosition.z +=
+    sin(position.x * 4.0 + uTime * 1.4) * 0.025 +
+    sin(position.y * 5.0 - uTime * 1.1) * 0.02;
+
+  gl_Position = projectionMatrix * modelViewMatrix * vec4(displacedPosition, 1.0);
   vUv = uv;
 }
-
 
