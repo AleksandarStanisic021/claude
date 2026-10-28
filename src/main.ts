@@ -1,6 +1,8 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import bambiTextureUrl from "./bambi.png";
+import natureUtl from "./priroda.jpg";
+
 import vertexShader from "./shaders/plane.vert.glsl?raw";
 import fragmentShader from "./shaders/plane.frag.glsl?raw";
 
@@ -12,8 +14,10 @@ document.body.appendChild(renderer.domElement);
 const loader = new THREE.TextureLoader();
 
 const bambi = loader.load(bambiTextureUrl);
+const nature = loader.load(natureUtl);
 
 console.log(bambi);
+console.log(nature);
 
 const scene = new THREE.Scene();
 
@@ -33,6 +37,7 @@ const material = new THREE.ShaderMaterial({
   fragmentShader,
   side: THREE.DoubleSide,
   uniforms: {
+    nature: { value: nature },
     diffuse: { value: bambi },
     color1: { value: new THREE.Vector4(0, 1, 1, 1) },
     color2: { value: new THREE.Vector4(1, 1, 0, 1) },
